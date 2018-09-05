@@ -4,7 +4,7 @@ class NewMemberForm extends Component {
     render() {
         return (
             <div>
-                <form action="/dfghdfgh/ftdtyj"><input type="text"/><input type="text"/><input type="text"/>
+                <form action="/"><input type="text"/><input type="text"/><input type="text"/>
                     <button type={"button"}>send data</button>
                 </form>
             </div>
