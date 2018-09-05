@@ -35,9 +35,9 @@ const fillDataFromAjaxFailure = (error)=>{
 
 
 export const postNewMember=(url,data)=>{
-    return{
-        type: types.POST_NEW_MEMBER,
-        url:url,
-        data: data
+    return (dispatch)=>{
+        axios.post(url, {...data}).then((res)=>{
+            dispatch(fillDataFromAjax(url))
+        })
     }
 };
