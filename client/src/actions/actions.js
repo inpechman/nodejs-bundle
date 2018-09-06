@@ -8,6 +8,7 @@ export const types = Object.freeze({
 });
 
 export const fillDataFromAjax = (url) => {
+    console.log(url);
     return (dispatch)=>{
         axios.get(url).then((res)=>{
             dispatch(fillDataFromAjaxSuccess(res.data))
