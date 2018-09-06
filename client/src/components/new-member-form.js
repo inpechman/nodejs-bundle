@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {postNewMember} from "../actions/actions";
-import {API_URL} from "../envirement";
+import {API_URL} from "../client-envirement";
 
 class NewMemberForm extends Component {
     constructor(props) {

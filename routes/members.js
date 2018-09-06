@@ -1,8 +1,23 @@
+
 const express = require('express');
+const mongoose = require('mongoose');
+
+
+const MONGO_DB_URI = "mongodb://localhost:27017/project";
+
 
 const teamRouter = express.Router();
+mongoose.connect(MONGO_DB_URI);
 
+mongoose.Promise = global.Promise;
 
+const DB = mongoose.connection;
+DB.on('error', console.error.bind(console, "MongoDB connection error: "));
+const DBmember = mongoose.model('member', mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    phone: String
+}));
 const data = [
     {
         "id": "1",
@@ -69,6 +84,9 @@ const getMemberById = (id)=>{
 const addMemberToData =(member)=>{
     const newMember = {id: data.length + 1, ...member};
     data.push(newMember);
+    console.log(DBmember);
+    const memberForDB = new DBmember(newMember);
+    memberForDB.save()
 };
 
 teamRouter.get('/member',(req,res)=>{

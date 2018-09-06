@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {fillDataFromAjax, types} from "../actions/actions";
-import {API_URL} from "../envirement";
+import {API_URL} from "../client-envirement";
 
 
 const Member = (props) => {
